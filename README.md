@@ -1,7 +1,7 @@
 # Parallel-Multilevel-Monte-Carlo-for-Capacitance-Extraction-in-Non-Manhattan-Geometries
 A technique for improving the performance of a Monte Carlo algorithm for capacitance extraction of integrated circuits that allowed to reach a x3 better accuracy after an hour of running time. Near perfectly parallel with 99% speedup per CPU core.
 
-Pseudo-code for Walk-On-Spheres algorithm:
+Pseudo-code for the original/classic Walk-On-Spheres algorithm:
 
 ```
 Input: numberofSimulations, initialP oint, ε, circuit
@@ -18,9 +18,7 @@ end
 result = sum / numberOfSimulations
 Output: result
 ```
-
 Pseudo-code for particle step:
-
 ```
 Input: point, d, collision
 rndAngle = rand(0, 2π)
@@ -37,7 +35,8 @@ end
 Output: point
 ```
 
-Modified Walk-On-Spheres algorithm that has improved performance:
+Modified Walk-On-Spheres algorithm that I implemented:
+
 ```
 Input: numberofSimulations, ε, ε2, level, point, circuit
 v1 = v2 = sum = 0
