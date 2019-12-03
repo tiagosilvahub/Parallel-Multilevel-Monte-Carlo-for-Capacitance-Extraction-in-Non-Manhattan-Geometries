@@ -15,7 +15,7 @@ for numberOfSimulations do
   v = voltage(electrode, circuit)
   sum = sum + v
 end
-result = sum/numberOfSimulations
+result = sum / numberOfSimulations
 Output: result
 ```
 
@@ -27,12 +27,12 @@ rndAngle = rand(0, 2π)
 if collision then
   return
 end
-if electrode == OUT ERLAY ER then
-  p.x− = 2 × d × normal.x
-  p.y− = 2 × d × normal.y
+if electrode == OUTERLAYER then
+  p.x −= 2 × d × normal.x
+  p.y −= 2 × d × normal.y
 else
-  p.x+ = d × cos(rndAngle)
-  p.y+ = d × sin(rndAngle)
+  p.x += d × cos(rndAngle)
+  p.y += d × sin(rndAngle)
 end
 Output: point
 ```
@@ -47,7 +47,7 @@ for numberofSimulations do
   electrode = NOELECTRODE
   first = NOCOLLISION
   second = NOCOLLISION
-  while second! = COLLIDED do
+  while second != COLLIDED do
     d, first, second, electrode = distance(point, circuit, ε, ε2)
     point = particleStep(point, d, f irst, second, electrode)
     if first == JUSTCOLLIDED then
