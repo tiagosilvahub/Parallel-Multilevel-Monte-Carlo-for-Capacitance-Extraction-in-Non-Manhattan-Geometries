@@ -43,31 +43,31 @@ Input: numberofSimulations, ε, ε2, level, point, circuit
 v1 = v2 = sum = 0
 t1 = time()
 for numberofSimulations do
-  p = initialP oint
+  p = initialPoint
   electrode = NOELECTRODE
   first = NOCOLLISION
   second = NOCOLLISION
-while second! = COLLIDED do
-  d, f irst, second, electrode = distance(point, circuit, ε, ε2)
-  point = particleStep(point, d, f irst, second, electrode)
-  if first == JUST COLLIDED then
-    if level == 0 then
-      second = COLLIDED
-      v1 = 0;
-    else
-      v1 = voltage(electrode, circuit)
-      first = COLLIDED
+  while second! = COLLIDED do
+    d, first, second, electrode = distance(point, circuit, ε, ε2)
+    point = particleStep(point, d, f irst, second, electrode)
+    if first == JUSTCOLLIDED then
+      if level == 0 then
+        second = COLLIDED
+        v1 = 0;
+      else
+        v1 = voltage(electrode, circuit)
+        first = COLLIDED
+      end
     end
   end
-end
-v2 = voltage(electrode, circuit)
-v = v2 − v1
-sum = sum + v
-sumSq = sumSq + pow(v, 2)
+  v2 = voltage(electrode, circuit)
+  v = v2 − v1
+  sum = sum + v
+  sumSq = sumSq + pow(v, 2)
 end
 t2 = time()
-avgCost = (t2 − t1)/numberOfSimulations
-avgVariance = sumSq/numberOfSimulations
-avgVoltage = sum/numberOfSimulations
-Output: avgV oltage, avgV ariance, avgCost
+avgCost = (t2 − t1) / numberOfSimulations
+avgVariance = sumSq / numberOfSimulations
+avgVoltage = sum / numberOfSimulations
+Output: avgVoltage, avgVariance, avgCost
 ```
