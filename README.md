@@ -48,7 +48,7 @@ for numberofSimulations do
   second = NOCOLLISION
   while second != COLLIDED do
     d, first, second, electrode = distance(point, circuit, ε, ε2)
-    point = particleStep(point, d, f irst, second, electrode)
+    point = particleStep(point, d, first, second, electrode)
     if first == JUSTCOLLIDED then
       if level == 0 then
         second = COLLIDED
